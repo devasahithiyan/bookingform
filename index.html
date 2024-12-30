@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment with Deva</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Favicon (Optional) -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Book an Appointment with Deva</h1>
+        <form id="appointmentForm">
+            <div class="form-group">
+                <label for="fullName">Full Name<span class="required">*</span>:</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email<span class="required">*</span>:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number<span class="required">*</span>:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter 10-digit phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Preferred Date<span class="required">*</span>:</label>
+                <input type="date" id="date" name="date" required min="2024-01-02">
+            </div>
+
+            <div class="form-group">
+                <label for="time">Preferred Time<span class="required">*</span>:</label>
+                <select id="time" name="time" required>
+                    <option value="">Select Time</option>
+                    <option value="2:00 PM - 3:00 PM">2:00 PM - 3:00 PM</option>
+                    <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
+                    <option value="4:00 PM - 5:00 PM">4:00 PM - 5:00 PM</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="venue">Venue<span class="required">*</span>:</label>
+                <input type="text" id="venue" name="venue" placeholder="Enter venue location" required>
+            </div>
+
+            <div class="info-group">
+                <label>Dress Code:</label>
+                <p>Casual</p>
+            </div>
+
+            <div class="info-group">
+                <label>Cost:</label>
+                <p>₹500/hour</p>
+            </div>
+
+            <div class="info-group">
+                <label>Additional Charges:</label>
+                <p>Selfie with Deva: ₹100 per selfie</p>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="spinner hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                    <circle cx="25" cy="25" r="20" fill="none" stroke="#4facfe" stroke-width="5" stroke-linecap="round"></circle>
+                </svg>
+            </div>
+
+            <button type="submit" id="submitButton">Book Appointment</button>
+        </form>
+    </div>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            /* 
+               Below, replace with your sample data:
+               Public Key (User ID): fkbyhw_wPngtt7iY3
+            */
+            emailjs.init("fkbyhw_wPngtt7iY3"); 
+        })();
+    </script>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
