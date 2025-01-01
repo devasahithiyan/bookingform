@@ -1,214 +1,521 @@
-/* Resetting default browser styles */
+/* CSS Reset */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Body & Background */
 body {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
-.container, .confirmation-container {
-    background-color: #ffffff;
-    padding: 30px 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
-    animation: fadeIn 1s ease-in-out;
+/* Background Overlay */
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  z-index: -1;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #333333;
-    font-weight: 700;
-    font-size: 24px;
-    animation: slideDown 0.5s ease-in-out;
-}
-
-.form-group {
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #555555;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #eeeeee;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-    border-color: #4facfe;
-    box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
-    outline: none;
-}
-
-.required {
-    color: #ff4d4f;
-    margin-left: 2px;
-}
-
-.info-group {
-    margin-bottom: 20px;
-}
-
-.info-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #555555;
-    font-weight: 500;
-}
-
-.info-group p {
-    padding: 12px 15px;
-    background-color: #f0f8ff;
-    border-left: 4px solid #4facfe;
-    color: #333333;
-    border-radius: 8px;
-    font-size: 16px;
-    animation: fadeInUp 0.5s ease-in-out;
-}
-
-/* Loading Spinner Styles */
-.spinner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.spinner svg {
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-}
-
-/* Hide elements with the 'hidden' class */
-.hidden {
-    display: none;
-}
-
-button {
-    width: 100%;
-    padding: 14px 0;
-    background-color: #4facfe;
-    border: none;
-    border-radius: 8px;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    position: relative;
-}
-
-button:hover {
-    background-color: #00f2fe;
-    transform: translateY(-2px);
-}
-
-button:active {
-    transform: translateY(0);
+/* Container Styles */
+.container {
+  background: #ffffff;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 800px;
+  margin: 50px auto;
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slideDown {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333333;
+  font-weight: 700;
+  font-size: 2.8em;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slideInDown 1s ease-out;
+}
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555555;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+label:hover {
+  color: #000000;
+}
+
+.required {
+  color: red;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 14px 20px;
+  border: 1px solid #cbd5e0;
+  border-radius: 10px;
+  font-size: 1em;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #4facfe;
+  box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+  outline: none;
+}
+
+/* Add-Ons Styles */
+.add-ons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  animation: fadeInUp 0.6s ease-in-out;
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.add-ons label {
+  display: flex;
+  align-items: center;
+  background: #f0f4f8;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.add-ons label:hover {
+  background: #d9e2ec;
+  transform: scale(1.05);
+}
+
+.add-ons input {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Coupon Code Styles */
+.coupon-code {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.coupon-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center; /* Align items vertically */
+}
+
+.coupon-container input {
+  flex: 1;
+  padding: 12px 18px;
+  border: 1px solid #cbd5e0;
+  border-radius: 10px;
+  font-size: 1em;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.coupon-container input:focus {
+  border-color: #4facfe;
+  box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+  outline: none;
+}
+
+.coupon-container button {
+  padding: 12px 20px;
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.coupon-container button:hover {
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  transform: scale(1.05);
+}
+
+.coupon-message {
+  color: green;
+  font-size: 0.9em;
+  min-height: 20px;
+}
+
+/* Total Cost Styles */
+.total-cost {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #333333;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Terms and Conditions Styles */
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.terms input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.terms-summary {
+  font-weight: 500;
+  cursor: pointer;
+  color: #4facfe;
+  text-decoration: underline;
+  margin-left: 5px;
+  transition: color 0.3s;
+}
+
+.terms-summary:hover {
+  color: #00f2fe;
+}
+
+.terms-content {
+  margin-top: 10px;
+  color: #555555;
+  font-size: 0.95em;
+}
+
+/* Submit Button Styles */
+.submit-button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(45deg, #38a169, #2f855a);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  margin-top: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button:hover {
+  background: linear-gradient(45deg, #2f855a, #38a169);
+  transform: scale(1.02);
+}
+
+/* Payment Info Styles */
+.payment-info {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #718096;
+  text-align: center;
+}
+
+/* Loading Spinner Styles */
+.loading-spinner {
+  display: none; /* Hidden by default */
+  position: fixed; 
+  z-index: 1500; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0,0,0,0.3); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #4facfe; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-/* Confirmation Page Styles */
-.confirmation-container h1 {
-    color: #28a745;
-    font-size: 26px;
-    margin-bottom: 20px;
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; 
+  z-index: 2000; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.5); 
+  padding: 20px;
 }
 
-.confirmation-container p {
-    color: #555555;
-    font-size: 18px;
-    margin-bottom: 20px;
+.modal-content {
+  background-color: #ffffff;
+  margin: 5% auto; 
+  padding: 30px;
+  border: 1px solid #888;
+  width: 100%; 
+  max-width: 700px;
+  border-radius: 15px;
+  position: relative;
+  animation: slideDown 0.5s ease-in-out;
 }
 
-.back-button {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #4facfe;
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.2s;
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.back-button:hover {
-    background-color: #00f2fe;
-    transform: translateY(-2px);
+.close {
+  color: #a0aec0;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
-.back-button:active {
-    transform: translateY(0);
+.close:hover,
+.close:focus {
+  color: #2d3748;
+}
+
+#confirmationDetails ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  color: #4a5568;
+}
+
+#confirmationDetails h3 {
+  margin-top: 20px;
+  color: #2d3748;
+}
+
+/* Close Button */
+.close-button {
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  color: #ffffff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s, transform 0.3s;
+  margin-top: 20px;
+}
+
+.close-button:hover {
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  transform: scale(1.02);
+}
+
+/* Download PDF Button */
+#downloadPDF {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  margin-top: 10px;
+}
+
+#downloadPDF:hover {
+  background: linear-gradient(45deg, #764ba2, #667eea);
+}
+
+/* QR Code Section */
+.qr-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.qr-section p {
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #555555;
+}
+
+#qrCode {
+  width: 128px;
+  height: 128px;
+  border: 2px solid #4facfe;
+  border-radius: 10px;
+}
+
+/* Coupon Information Modal Styles */
+#couponModal .modal-content {
+  text-align: center;
+}
+
+#couponModal h2 {
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+#couponModal p {
+  color: #555555;
+  font-size: 1.1em;
+  margin-bottom: 30px;
+}
+
+.copy-button {
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.copy-button:hover {
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  transform: scale(1.05);
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
-    .container, .confirmation-container {
-        padding: 20px 25px;
-    }
+@media (max-width: 1024px) {
+  .container {
+      padding: 35px 40px;
+  }
 
-    h1 {
-        font-size: 22px;
-    }
+  h1 {
+      font-size: 2.5em;
+  }
+}
 
-    .form-group input,
-    .form-group select {
-        font-size: 14px;
-        padding: 10px 12px;
-    }
+@media (max-width: 768px) {
+  .container {
+      padding: 30px 30px;
+  }
+  
+  h1 {
+      font-size: 2.2em;
+  }
 
-    .info-group p {
-        font-size: 14px;
-        padding: 10px 12px;
-    }
+  .coupon-container {
+      flex-direction: column;
+  }
 
-    button {
-        font-size: 16px;
-        padding: 12px 0;
-    }
+  .coupon-container input,
+  .coupon-container button {
+      width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-ons {
+      flex-direction: column;
+  }
+
+  .add-ons label {
+      margin-bottom: 10px;
+  }
+}
+
+/* Styling for <details> and <summary> */
+details {
+  width: 100%;
+}
+
+summary {
+  font-weight: 500;
+  cursor: pointer;
+  color: #4facfe;
+  text-decoration: underline;
+  margin-left: 5px;
+}
+
+summary:hover {
+  color: #00f2fe;
+}
+
+.terms-content {
+  margin-top: 10px;
+  color: #555555;
+  font-size: 0.95em;
+}
+
+/* Style for disabled time slots */
+select#time option:disabled {
+  background-color: #ffe6e6; /* Light red */
+  color: #ff0000; /* Red text */
+  cursor: not-allowed;
+}
+select#time option.booked {
+  background-color: #ffe6e6; /* Light red */
+  color: #ff0000;            /* Red text */
+  cursor: not-allowed;
+}
+
+/* Ensure the " (Booked)" text is visible */
+select#time option.booked {
+  font-weight: bold;
+}
+
+/* Optional: Adjust the width of the time slot select for better readability */
+select#time {
+  width: 100%;
 }
